@@ -1,0 +1,83 @@
+
+.game-container {
+    display: grid;
+    margin: 25px auto 10px auto;
+    grid-template-columns: 300px 600px 300px;
+    grid-template-rows: 55px 230px 205px 95px 45px;
+    grid-gap: 10px;
+    height: 670px;
+    width: 1220px;
+    border: 10px solid black;
+    background-color: gray;
+}
+#header {
+    grid-area: 1 / 1 / 2 / 4;
+    margin: 15px auto;
+    text-align: center;
+}
+
+#top-left {
+    background-color: blue;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-right: 10px solid black;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+#mid-left {
+    background-color: green;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-right: 10px solid black;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+#bottom-left {
+    background-color: red;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-right: 10px solid black;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+#top-right {
+    background-color: blue;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-left: 10px solid black;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+#mid-right {
+    background-color: green;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-left: 10px solid black;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+#bottom-right {
+    background-color: red;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-left: 10px solid black;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+main {
+    background-color: black;
+    border: 5px solid white;
+    grid-area: 2 / 2 / 5 / 3;
+}
