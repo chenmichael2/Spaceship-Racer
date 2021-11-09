@@ -7,6 +7,7 @@
     grid-gap: 10px;
     height: 670px;
     width: 1220px;
+    border-radius: 25px;
     border: 10px solid black;
     background-color: gray;
 }
@@ -77,12 +78,13 @@
 }
 
 main {
-    display: flex;
-    background-color: black;
+    background-color: rgb(12, 11, 11);
     border: 5px solid white;
+    border-radius: 25px;
     grid-area: 2 / 2 / 5 / 3;
 }
 
 #game-canvas {
-    display:flex; 
+    width: 100%;
+    height: 100%;
 }
