@@ -5,21 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Jet Fighter</title>
+    <title>Spaceship Racer</title>
 </head>
 <body>
+    
     <div class="game-container">
         <div id="game"></div>
-        <h1 id="header">Jet Fighter</h1>
-            <aside id="top-left"><h2>Player1Controls</h2></aside>
-            <aside id="top-right"><h2>Player2Controls</h2></aside>
-            <aside id="mid-left"><h2><p>Score:</p><br><h2 id="score1"></h2></h2></aside>
+        <div id="beginning-title">
+            <p>To save humanity, you need to get to the other side without getting hit by asteroids. <br>
+                Select a difficulty and speed of the asteroids
+                <div id="#difficulty">
+                    <input type="radio" id="easy" name ="difficulty" value="easy" checked>
+                    <label for="easy">Easy</label>
+                    <input type="radio" id="medium" name="difficulty" value="medium">
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="hard" name="difficulty" value="hard">
+                    <label for="hard">Hard</label>
+                </div>
+                <div id="speed">
+                    <input type="radio" id="slow" name ="speed" value="slow" checked>
+                    <label for="easy">Slow</label>
+                    <input type="radio" id="med" name="speed" value="med">
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="fast" name="speed" value="fast">
+                    <label for="hard">Fast</label>
+                </div>
+            </p>
+        </div>
+        <h1 id="header">Spaceship Racer</h1>
+            <aside id="top-left">
+                <h2>Player 1 Controls: 
+                    <br><br>
+                    "w" = up
+                    <br>
+                    "s" = down
+                </h2>
+            </aside>
+            <aside id="top-right">
+                <h2>Player 2 Controls:
+                    <br> <br>
+                    "i" = up
+                    <br>
+                    "k" = down
+                </h2>
+            </aside>
+            <aside id="mid-left">
+                <h2>
+                    <p>Score:</p>
+                    <br>
+                    <h2 id="score1"></h2>
+                </h2>
+            </aside>
             <main>
                 <canvas id="game-canvas"></canvas>
             </main>
-            <aside id="mid-right"><h2><p>Score:</p><br><h2 id="score2"></h2></h2></aside>
-            <aside id="bottom-left"><h2 id="restart">Restart</h2></aside>
-            <aside id="bottom-right"><h2 id="play">Play</h2></aside>
+            <aside id="mid-right">
+                <h2>
+                    <p>Score:</p>
+                    <br>
+                    <h2 id="score2"></h2>
+                </h2>
+            </aside>
+            <aside id="bottom-left">
+                <h2 id="restart">Restart</h2>
+            </aside>
+            <aside id="bottom-right">
+                <h2 id="play">Play</h2>
+            </aside>
             <aside id="bottom-center"></aside>
     </div>
 </body>

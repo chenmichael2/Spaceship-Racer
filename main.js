@@ -63,6 +63,7 @@ class asteroid {
     // 2 Player
 play.addEventListener('click', function start2Player() {
 //creating ships
+    document.querySelector('#beginning-title').classList.add('hidden');
     clearInterval(runGame);
     let playerOneScore = 0
     let playerTwoScore = 0
@@ -86,7 +87,8 @@ play.addEventListener('click', function start2Player() {
     collisionPlayerTwo();
     playerOneWin();
     playerTwoWin();
-        
+    playerOneWon();
+    playerTwoWon();
 //Win Conditions
     function playerOneWin() {
         if (playerOne.y1 < 1) {
@@ -105,10 +107,19 @@ play.addEventListener('click', function start2Player() {
 //Player Won
     function playerOneWon() {
         if (playerOneScore === 5) {
-            text.textContent = "Player One Won"
+            text.textContent = "Player One Wins"
+            ctx.clearRect(0, 0, game.width, game.height);
         }
-        return
+        return;
     }
+    function playerTwoWon() {
+        if (playerTwoScore === 5) {
+            text.textContent = "Player Two Wins"
+            ctx.clearRect(0, 0, game.width, game.height);
+        }
+        return;
+    }      
+
     
         runGame = setInterval(gameLoop, 1);
 
@@ -125,9 +136,19 @@ play.addEventListener('click', function start2Player() {
             playerOneWin();
             playerTwoWin();
             playerOneWon();
+            playerTwoWon();
         }
     });
 
+document.querySelector('#bottom-left').addEventListener('click', function reset() {
+    ctx.clearRect(0, 0, game.width, game.height);
+    clearInterval(runGame);
+    playerOneScore = 0;
+    playerTwoScore = 0;
+    document.querySelector('#score1').textContent = "";
+    document.querySelector('#score2').textContent = "";
+    document.querySelector('#beginning-title').classList.remove('hidden');
+});
 
     /////Functions!
 
@@ -297,5 +318,6 @@ play.addEventListener('click', function start2Player() {
         }
         return false;
     }
-        
+
+  
     
