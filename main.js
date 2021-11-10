@@ -5,6 +5,36 @@ let text = document.querySelector('#bottom-center');
 let runGame;
 let playerOneScore = 0;
 let playerTwoScore = 0;
+let difficulty;
+let speed;
+
+//Radio Button Values
+    //Form
+document.getElementById('easy').addEventListener('click', function easy() {
+    difficulty = 20;
+    console.log(difficulty);
+})
+document.getElementById('medium').addEventListener('click', function medium() {
+    difficulty = 30;
+    console.log(difficulty);
+})
+document.getElementById('hard').addEventListener('click', function hard() {
+    difficulty = 40;
+    console.log(difficulty);
+})
+
+document.getElementById('slow').addEventListener('click', function slow() {
+    speed = 2;
+    console.log(speed);
+})
+document.getElementById('med').addEventListener('click', function med() {
+    speed = 3;
+    console.log(speed);
+})
+document.getElementById('fast').addEventListener('click', function fast() {
+    speed = 5;
+    console.log(speed);
+})
 
 let playerOne;
 let playerTwo;
@@ -49,7 +79,8 @@ class asteroid {
         this.start = 0;
         this.end = 2 * Math.PI;
         this.statement = false;
-        this.direction = 'r'
+        this.direction = 'r';
+        this.speed = speed;
 
         this.render = function () {
             ctx.beginPath();
@@ -59,6 +90,9 @@ class asteroid {
         }
     }
 }
+
+
+
 
     // 2 Player
 play.addEventListener('click', function start2Player() {
@@ -139,7 +173,7 @@ play.addEventListener('click', function start2Player() {
             playerTwoWon();
         }
     });
-
+//Reset button
 document.querySelector('#bottom-left').addEventListener('click', function reset() {
     ctx.clearRect(0, 0, game.width, game.height);
     clearInterval(runGame);
@@ -149,6 +183,13 @@ document.querySelector('#bottom-left').addEventListener('click', function reset(
     document.querySelector('#score2').textContent = "";
     document.querySelector('#beginning-title').classList.remove('hidden');
 });
+
+//Easter Egg lol
+document.querySelector('#header').addEventListener('click', function image() {
+    document.querySelector('main').classList.add('background-image');
+    console.log('did it add the image?');
+});
+
 
     /////Functions!
 
@@ -185,14 +226,14 @@ document.querySelector('#bottom-left').addEventListener('click', function reset(
                     if (arr[i].x + 3 > 590) {
                         arr[i].direction = 'l'
                     } else {
-                        arr[i].x += (Math.floor(Math.random() * 3));
+                        arr[i].x += (Math.floor(Math.random() * arr[i].speed));
                     }
                     break;
                 case 'l':
                     if (arr[i].x - 3 < 0) {
                         arr[i].direction = 'r'
                     } else {
-                        arr[i].x -= (Math.floor(Math.random() * 3));
+                        arr[i].x -= (Math.floor(Math.random() * arr[i].speed));
                     }
                     break;
             }
