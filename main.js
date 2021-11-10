@@ -1,14 +1,18 @@
 let game = document.querySelector('#game-canvas');
 let ctx = game.getContext('2d');
+let play = document.querySelector('#bottom-right');
 
 let playerOne;
 let playerTwo;
+let asteroidOne;
+let arr = [];
 
 window.addEventListener('load', function () {
     game.setAttribute('height', getComputedStyle(game)["height"]);
     game.setAttribute('width', getComputedStyle(game)["width"]);
-    start2Player();
 });
+
+
 
 class plane {
     constructor(x1, y1, x2, y2, x3, y3, color) {
@@ -31,14 +35,30 @@ class plane {
         }
     }
 }
+
 class asteroid {
-    constructor() {
-        
+    constructor(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.start = 0;
+        this.end = 2 * Math.PI;
+        this.statement = false;
+        this.direction = 'r'
+
+        this.render = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, this.start, this.end, this.statement);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        }
     }
 }
+
 // 2 Player
-function start2Player() {
+play.addEventListener('click', function start2Player() {
     //creating ships
+    arr.length = 0
     playerOne = new plane(145, 500, 140, 530, 150, 530, 'white');
     playerOne.render();
     playerTwo = new plane(442, 500, 437, 530, 447, 530, 'gray');
@@ -70,16 +90,86 @@ function start2Player() {
                 playerTwo.y3 <= 530 ? playerTwo.y3 += 3 : playerTwo.y3 = 530;
                 break;
         };
+    };
+    //asteroid
+    function createAsteroid() {
+        for (let i = 0; i < 20; i++) {
+            let ast = new asteroid(Math.floor(Math.random() * 590), Math.floor(Math.random() * 500), 3);
+            if (i % 2 === 0) {
+                ast.direction = 'l'
+            }
+            arr.push(ast);
+            
+            // arr[i].render();
+        }
+    };
+    createAsteroid();
+    console.log(arr);
+    //Collision
+    //player one collision
+    function collision() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].x === playerOne.x1) {
+
+            }
+        }
     }
-    // creating asteroids
+    //Win
+
+    const runGame = setInterval(gameLoop, 1);
+
+function gameLoop() {
+    ctx.clearRect(0, 0, game.width, game.height);
+    playerTwo.render();
+    playerOne.render();
+    asteroidRender();
+    asteroidMove();
+}
+})
 
 
-    const runGame = setInterval(gameLoop, .1);
-    };
-    function gameLoop() {
-        ctx.clearRect(0, 0, game.width, game.height);
-        playerOne.render();
-        playerTwo.render();
-    };
+/////Functions!
 
-
+// RESET PLAYER
+function resetPlayerOne() {
+    playerOne.x1 = 145;
+    playerOne.y1 = 500;
+    playerOne.x2 = 140;
+    playerOne.y2 = 530;
+    playerOne.x3 = 150;
+    playerOne.y3 = 530;
+}
+function resetPlayerTwo() {
+    playerTwo.x1 = 442;
+    playerTwo.y1 = 500; 
+    playerTwo.x2 = 437;
+    playerTwo.y2 = 530,
+    playerTwo.x3 = 447;
+    playerTwo.y3 = 530;
+}
+//asteroid rendering
+function asteroidRender() {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].render();
+    }
+}
+//asteroid movement
+function asteroidMove() {
+    for (let i = 0; i < arr.length; i++) {
+        switch (arr[i].direction) {
+            case 'r':
+                if (arr[i].x + 3 > 590) {
+                    arr[i].direction = 'l'
+                } else {
+                    arr[i].x += (Math.floor(Math.random() * 3));
+                }
+                break;
+            case 'l':
+                if (arr[i].x - 3 < 0) {
+                    arr[i].direction = 'r'
+                } else {
+                    arr[i].x -= (Math.floor(Math.random() * 3));
+                }
+        }
+    }
+}
