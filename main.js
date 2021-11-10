@@ -104,16 +104,35 @@ play.addEventListener('click', function start2Player() {
         }
     };
     createAsteroid();
-    console.log(arr);
-    //Collision
-    //player one collision
-    function collision() {
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i].x === playerOne.x1) {
+//Collision
+// let hitTest = (
+//     p1.y + p1.height > p2.y && 
+//     p1.y < p2.y + p2.height &&
+//     p1.x + p1.width > p2.x &&
+//     p1.x < p2.x + p2.width
+// ); // {boolean} : if all are true -> hit
 
-            }
+// if (hitTest) {
+//     return addNewShrek();
+// } else {
+//     return false;
+// }
+// };
+
+    function collisionPlayerOne() {
+        for (let i = 0; i < arr.length; i++) {
+            let hitTest = (
+                playerOne.y2 + 30 >  
+            )
         }
     }
+    
+
+    collisionPlayerOne();
+    
+
+    
+
     //Win
 
     const runGame = setInterval(gameLoop, 1);
@@ -124,8 +143,9 @@ function gameLoop() {
     playerOne.render();
     asteroidRender();
     asteroidMove();
+    collisionPlayerOne();
 }
-})
+});
 
 
 /////Functions!
