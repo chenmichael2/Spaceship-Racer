@@ -5,8 +5,8 @@ let text = document.querySelector('#bottom-center');
 let runGame;
 let playerOneScore = 0;
 let playerTwoScore = 0;
-let difficulty;
-let speed;
+let difficulty = 20;
+let speed = 2;
 
 //Radio Button Values
     //Form
@@ -221,6 +221,7 @@ document.querySelector('#header').addEventListener('click', function image() {
 //asteroid movement
     function asteroidMove() {
         for (let i = 0; i < arr.length; i++) {
+            console.log(speed);
             switch (arr[i].direction) {
                 case 'r':
                     if (arr[i].x + 3 > 590) {
@@ -318,7 +319,8 @@ document.querySelector('#header').addEventListener('click', function image() {
 
 //Creating Asteroid
     function createAsteroid() {
-        for (let i = 0; i < 20; i++) {
+        console.log(difficulty);
+        for (let i = 0; i < difficulty; i++) {
             let ast = new asteroid(Math.floor(Math.random() * 590), Math.floor(Math.random() * 420) + 30, 3);
             if (i % 2 === 0) {
                 ast.direction = 'l'
