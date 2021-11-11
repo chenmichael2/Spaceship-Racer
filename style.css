@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Prompt:wght@600&display=swap');
 
 body {
     background-color: rgb(43, 57, 70);
@@ -6,8 +7,10 @@ body {
 }
 #beginning-title {
     background-color: blanchedalmond;
+    font-family: 'Mohave', sans-serif;
+    font-size: 20px;
     width: 500px;
-    height: 180px;
+    height: 300px;
     padding-top: 10px;
     text-align: center;
     grid-area: 2 / 2 / 5 / 3;
