@@ -221,7 +221,6 @@ document.querySelector('#header').addEventListener('click', function image() {
 //asteroid movement
     function asteroidMove() {
         for (let i = 0; i < arr.length; i++) {
-            console.log(speed);
             switch (arr[i].direction) {
                 case 'r':
                     if (arr[i].x + 3 > 590) {
