@@ -22,4 +22,66 @@ The game finally looks like this. (Styling still in progress).
 
 ![Game](/game.png)
 
-## How it Works
+# How it Works
+
+## Classes
+There are two classes that are created. Asteroids and Planes (Spaceships). 
+```
+class plane {
+    constructor(x1, y1, x2, y2, x3, y3, color) {
+        this.x1 = x1; //front
+        this.y1 = y1;
+        this.x2 = x2; //back left
+        this.y2 = y2;
+        this.x3 = x3; //back right
+        this.y3 = y3;
+        this.movement = 'stop';
+        this.color = color;
+        this.alive = true;
+
+        this.render = function () {
+            ctx.fillStyle = this.color //change the color of the context(ctx)
+            var triangle1 = new Path2D();
+            triangle1.moveTo(this.x1, this.y1);
+            triangle1.lineTo(this.x2, this.y2);
+            triangle1.lineTo(this.x3, this.y3);
+            ctx.fill(triangle1);
+        }
+    }
+}
+```
+
+```
+class asteroid {
+    constructor(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.start = 0;
+        this.end = 2 * Math.PI;
+        this.statement = false;
+        this.direction = 'r';
+        this.speed = speed;
+
+        this.render = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, this.start, this.end, this.statement);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        }
+    }
+}
+```
+These classes provide the basic framework of each plane and asteroid. The plane object is created to have keys of triangle values and the asteroid object is created to have a circular value. 
+
+### Creation, Rendering, and Movement
+
+#### Asteroid
+
+#### Spaceship
+
+## Collision
+
+## Win Condition
+
+## Difficulty
