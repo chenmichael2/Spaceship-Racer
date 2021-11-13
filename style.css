@@ -27,6 +27,8 @@ body {
 }
 .game-container {
     display: grid;
+    align-self: center;
+    justify-self: center;
     margin: 0px auto 0px auto;
     grid-template-columns: 300px 600px 300px;
     grid-template-rows: 55px 230px 205px 95px 45px;
