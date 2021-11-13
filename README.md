@@ -132,6 +132,16 @@ function collisionPlayerOne() {
         return false;
     }
 ~~~
+###### if you read this far, there is an easter egg lol
 
 ## Win Condition
-The win condition is detected when the score of one of the players is equal to 5. Once 
+The win condition is detected when the score of one of the players is equal to 5. Once one of the players win, the canvas will be reset and players can either press play to play again or restart to choose another difficulty and play again. 
+~~~js
+    function playerOneWon() {
+        if (playerOneScore === 5) {
+            text.textContent = "Player One Wins"
+            ctx.clearRect(0, 0, game.width, game.height);
+        }
+        return;
+    }
+~~~
