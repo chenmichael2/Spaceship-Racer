@@ -134,4 +134,4 @@ function collisionPlayerOne() {
 ~~~
 
 ## Win Condition
-The win condition is detected when the score of one of the players is equal to 5. 
+The win condition is detected when the score of one of the players is equal to 5. Once 
