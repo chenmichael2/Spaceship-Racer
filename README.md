@@ -149,3 +149,5 @@ The win condition is detected when the score of one of the players is equal to 5
 # Future Direction
 - Apply an actual image to the spaceship 
 - Provide a certain amount of lives possibly. 
+- Add sound to collision and finish.
+- Provide a left and right movement to provide an aspect of bumper cars.
