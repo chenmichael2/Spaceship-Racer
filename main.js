@@ -12,28 +12,22 @@ let speed = 2;
     //Form
 document.getElementById('easy').addEventListener('click', function easy() {
     difficulty = 20;
-    console.log(difficulty);
 })
 document.getElementById('medium').addEventListener('click', function medium() {
     difficulty = 30;
-    console.log(difficulty);
 })
 document.getElementById('hard').addEventListener('click', function hard() {
     difficulty = 40;
-    console.log(difficulty);
 })
 
 document.getElementById('slow').addEventListener('click', function slow() {
     speed = 2;
-    console.log(speed);
 })
 document.getElementById('med').addEventListener('click', function med() {
     speed = 3;
-    console.log(speed);
 })
 document.getElementById('fast').addEventListener('click', function fast() {
     speed = 5;
-    console.log(speed);
 })
 
 let playerOne;
@@ -61,7 +55,7 @@ class plane {
         this.alive = true;
 
         this.render = function () {
-            ctx.fillStyle = this.color //change the color of the context(ctx)
+            ctx.fillStyle = this.color 
             var triangle1 = new Path2D();
             triangle1.moveTo(this.x1, this.y1);
             triangle1.lineTo(this.x2, this.y2);
@@ -187,7 +181,6 @@ document.querySelector('#bottom-left').addEventListener('click', function reset(
 //Easter Egg lol
 document.querySelector('#header').addEventListener('click', function image() {
     document.querySelector('main').classList.add('background-image');
-    console.log('did it add the image?');
 });
 
 
@@ -244,37 +237,29 @@ document.querySelector('#header').addEventListener('click', function image() {
     function playerMovement (e) {
         if (e.key == 'w') {
             playerOne.movement = 'up';
-            console.log(playerOne.movement);
         }
         if (e.key == 's') {
             playerOne.movement = 'down';
-            console.log(playerOne.movement);
         }
         if (e.key == 'i') {
             playerTwo.movement = 'up';
-            console.log(playerTwo.movement);
         }
         if (e.key == 'k') {
             playerTwo.movement = 'down';
-            console.log(playerTwo.movement)
         }
     }
     function playerStop (e) {
         if (e.key == 'w') {
             playerOne.movement = 'stop';
-            console.log(playerOne.movement);
         }
         if (e.key == 's') {
             playerOne.movement = 'stop';
-            console.log(playerOne.movement);
         }
         if (e.key == 'i') {
             playerTwo.movement = 'stop';
-            console.log(playerTwo.movement);
         }
         if (e.key == 'k') {
             playerTwo.movement = 'stop';
-            console.log(playerTwo.movement);
         }
     }
     function player1Moving() {
@@ -318,15 +303,12 @@ document.querySelector('#header').addEventListener('click', function image() {
 
 //Creating Asteroid
     function createAsteroid() {
-        console.log(difficulty);
         for (let i = 0; i < difficulty; i++) {
             let ast = new asteroid(Math.floor(Math.random() * 590), Math.floor(Math.random() * 420) + 30, 3);
             if (i % 2 === 0) {
                 ast.direction = 'l'
             }
             arr.push(ast);
-
-            // arr[i].render();
         }
     };
 
