@@ -145,3 +145,7 @@ The win condition is detected when the score of one of the players is equal to 5
         return;
     }
 ~~~
+
+# Future Direction
+- Apply an actual image to the spaceship 
+- Provide a certain amount of lives possibly. 
